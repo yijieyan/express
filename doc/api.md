@@ -7,7 +7,7 @@
 
 > 本项目的http请求除了 /public/*开头的路由不用加token，其他的请求全部需要加token,token 写在header中
 ### <span id="id1">1.用户注册 </span>
-####1.1参数
+#### 1.1参数
 |参数|value|类型|
 |----|----|---|
 |phone|手机号|String|
@@ -29,7 +29,7 @@ curl -X POST \
   -H 'postman-token: a7a43fd2-c9d5-df8e-780f-50b6aa5371ed' \
   -d 'phone=13023459870&email=123456%40qq.com&password=123456&gender=true&username=tom'
 ```
-####1.2服务器返回
+#### 1.2服务器返回
 ```
 {
     "code": 0,
@@ -39,7 +39,7 @@ curl -X POST \
 }
 ```
 ### <span id="id2">2.用户登陆</span>
-####2.1 参数
+#### 2.1 参数
 |参数|value|类型|
 |----|----|---|
 |phone|手机号|String|
@@ -58,7 +58,7 @@ curl -X POST \
   -H 'postman-token: bbdd4047-1f50-7939-4d5e-b117c3cf7b0a' \
   -d 'email=123456%40qq.com&password=123456'
 ```
-####2.2服务器返回
+#### 2.2服务器返回
 ```
 {
     "code": 0,
@@ -68,7 +68,7 @@ curl -X POST \
 }
 ```
 ### <span id="id3">3.用户退出</span>
-####3.1 参数
+#### 3.1 参数
 > 传token
 ```
 url:'http://localhost:3000/user/signOut',
