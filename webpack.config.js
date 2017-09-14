@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const fs = require('fs');
-
+const pack = require('./package.json');
 let nodeModules = {};
 fs.readdirSync('node_modules')
     .filter(function(x) {
@@ -23,7 +23,7 @@ module.exports = {
     entry: './bin/start.js',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'build.js'
+        filename: `${pack.name}.js`
     },
     module: {
         rules: [
@@ -37,6 +37,10 @@ module.exports = {
                     presets: ['stage-0'],
                     plugins: ['transform-runtime']
                 }
+            },
+            {
+                test: /\.json$/,
+                loader: "json-loader"
             }
         ],
     },

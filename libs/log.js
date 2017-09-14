@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const bunyan = require('bunyan');
-const package = require('../package.json');
+const pack = require('../package.json');
 
 const loggerPath = path.resolve(__dirname, '../logs');
 if (!fs.existsSync(loggerPath)) {
@@ -10,7 +10,7 @@ if (!fs.existsSync(loggerPath)) {
 
 let logger = function() {
     global.logger = bunyan.createLogger({
-        name: `${package.name}`,
+        name: `${pack.name}`,
         streams: [
             {
                 type: 'rotating-file',
