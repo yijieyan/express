@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const fs = require('fs');
 const pack = require('./package.json');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 let nodeModules = {};
 fs.readdirSync('node_modules')
     .filter(function(x) {
@@ -45,6 +46,7 @@ module.exports = {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(['build']),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
